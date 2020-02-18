@@ -46,10 +46,10 @@ with open(csv_path, newline="") as csv_file:
     greatest_decrease_losses_date = total_number_months[43 + 1]
     print("Greatest Decrease in Losses: " + str(greatest_decrease_losses_date) + " ($" + str(greatest_decrease_losses_amount) + ")")
 # Specify the file to write to and open/export a text file with the results using "write" mode
-output_path = os.path.join("PyBank_results_1.txt")
+output_path = os.path.join("PyBank_results.txt")
 with open(output_path, "w", newline="") as txt_file:
     txt_file.write("Financial Analysis\n----------------------------\n")
-    txt_file.write(f"Total Months: {len(total_number_months)}""/n")
+    txt_file.write(f"Total Months: {len(total_number_months)}""\n")
     txt_file.write(f"Total: ${sum(net_total_amount_profit_losses)}""\n")
     txt_file.write(f"Average Change: ${rounded_average_changes_profit_losses}""\n")
     txt_file.write("Greatest Increase in Profits: " + str(greatest_increase_profit_date) + " ($" + str(greatest_increase_profit_amount) + ")""\n")

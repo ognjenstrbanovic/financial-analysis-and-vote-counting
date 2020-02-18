@@ -54,7 +54,7 @@ with open(csv_path, newline="") as csv_file:
     print(f"Winner: {candidate_list[0]}")
     print("-------------------------")
 # Specify the file to write to and open/export a text file with the results using "write" mode
-output_path = os.path.join("PyPoll_results_1.txt")
+output_path = os.path.join("PyPoll_results.txt")
 with open(output_path, 'w', newline='') as txt_file:
     txt_file.write("Election Results\n-------------------------\n")
     txt_file.write(f"Total Votes: {len(total_number_votes_cast)}""\n")
