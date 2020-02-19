@@ -19,7 +19,7 @@ with open(csv_path, newline="") as csv_file:
         net_total_amount_profit_losses.append(int(row[1]))
     # Print to the terminal (using f-strings) to check if our calculations are correct
     print(f"Total Months: {len(total_number_months)}")
-    print(f"Total: ${sum(net_total_amount_profit_losses)}")
+    print(f"Total: ${sum(net_total_amount_profit_losses):,}")
     # Use a "while" loop with the index, "i", starting at 0 and ending at 85 (one minus the length of the list because indexing starts at 0)
     i = 0
     # The empty list will contain the values of the month-to-month changes in Profit/Losses
@@ -31,26 +31,25 @@ with open(csv_path, newline="") as csv_file:
     average_changes_profit_losses = 0
     for element in profit_losses:
         average_changes_profit_losses += float(element) / len(profit_losses)
-    # Rounding to two decimal places for presentation purposes, and then printing to the terminal
+    # Rounding to two decimal places for presentation purposes, and then printing to the terminal (adding ": ," at the end of the curly braces formats the numerical output to have commas)
     rounded_average_changes_profit_losses = round(average_changes_profit_losses, 2)
-    print(f"Average Change: ${rounded_average_changes_profit_losses}")
+    print(f"Average Change: ${rounded_average_changes_profit_losses:,}")
     # Next up is to look for maximum profit change and minimum losses change, which we do by checking our output and using that in the built-in ".index" function
     greatest_increase_profit_amount = max(profit_losses)
     profit_losses.index(1926159)
     # We look for their dates; we add 1 because this is the month in which the greatest +/- change occurred
     greatest_increase_profit_date = total_number_months[24 + 1]
-    # Used str() method below b/c formatted strings didn't seem to work after a couple of tries
-    print("Greatest Increase in Profits: " + str(greatest_increase_profit_date) + " ($" + str(greatest_increase_profit_amount) + ")")
+    print(f"Greatest Increase in Profits: {greatest_increase_profit_date} (${greatest_increase_profit_amount:,})")
     greatest_decrease_losses_amount = min(profit_losses)
     profit_losses.index(-2196167)
     greatest_decrease_losses_date = total_number_months[43 + 1]
-    print("Greatest Decrease in Losses: " + str(greatest_decrease_losses_date) + " ($" + str(greatest_decrease_losses_amount) + ")")
+    print(f"Greatest Decrease in Losses: {greatest_decrease_losses_date} (${greatest_decrease_losses_amount:,})")
 # Specify the file to write to and open/export a text file with the results using "write" mode
 output_path = os.path.join("PyBank_results.txt")
 with open(output_path, "w", newline="") as txt_file:
     txt_file.write("Financial Analysis\n----------------------------\n")
     txt_file.write(f"Total Months: {len(total_number_months)}""\n")
-    txt_file.write(f"Total: ${sum(net_total_amount_profit_losses)}""\n")
-    txt_file.write(f"Average Change: ${rounded_average_changes_profit_losses}""\n")
-    txt_file.write("Greatest Increase in Profits: " + str(greatest_increase_profit_date) + " ($" + str(greatest_increase_profit_amount) + ")""\n")
-    txt_file.write("Greatest Decrease in Losses: " + str(greatest_decrease_losses_date) + " ($" + str(greatest_decrease_losses_amount) + ")")
+    txt_file.write(f"Total: ${sum(net_total_amount_profit_losses):,}""\n")
+    txt_file.write(f"Average Change: ${rounded_average_changes_profit_losses:,}""\n")
+    txt_file.write(f"Greatest Increase in Profits: {greatest_increase_profit_date} (${greatest_increase_profit_amount:,})""\n")
+    txt_file.write(f"Greatest Decrease in Losses: {greatest_decrease_losses_date} (${greatest_decrease_losses_amount:,})")
