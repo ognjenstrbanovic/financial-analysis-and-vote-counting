@@ -60,7 +60,7 @@ with open(output_path, 'w', newline='') as txt_file:
     txt_file.write(f"Total Votes: {len(total_number_votes_cast)}""\n")
     txt_file.write("-------------------------\n")
     txt_file.write(f"{candidate_list[0]}: {Khan_percentage} ({Khan_counter:,})""\n")
-    txt_file.write(f"{candidate_list[1]}: {Correy_percentage} ({Correy_counter:,}""\n")
+    txt_file.write(f"{candidate_list[1]}: {Correy_percentage} ({Correy_counter:,})""\n")
     txt_file.write(f"{candidate_list[2]}: {Li_percentage} ({Li_counter:,})""\n")
     txt_file.write(f"{candidate_list[3]}: {fourth_candidate_percentage} ({fourth_candidate_counter:,})""\n")
     txt_file.write("-------------------------\n")
