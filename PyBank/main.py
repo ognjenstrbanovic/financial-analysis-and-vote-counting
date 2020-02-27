@@ -3,7 +3,7 @@ import os
 # Importing the "csv" module allows us to read CSV (comma-separated values) files
 import csv
 # Directly below, we are setting the path for the file
-csv_path = os.path.join("PyBank", "budget_data.csv")
+csv_path = os.path.join("budget_data.csv")
 # We are opening the file with the delimiter set to be the comma (we do this with a "with" statement so that we do not have to close the file)
 with open(csv_path, newline="") as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=",")
